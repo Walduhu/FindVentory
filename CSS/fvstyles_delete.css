@@ -49,8 +49,8 @@ body {
   }
 
   .button-uebergabe:hover {
-    background-color: #00b400;
-    box-shadow: #005f00 0 -6px 8px inset;
+    background-color: red;
+    box-shadow: rgb(100, 0, 0) 0 -6px 8px inset;
     transform: scale(1.125);
   }
 
@@ -107,7 +107,7 @@ body {
   }
 
   th {
-    background-color: #00b400;
+    background-color: red;
   }
 
   tr:nth-child(even) {

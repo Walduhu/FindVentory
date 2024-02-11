@@ -12,11 +12,14 @@ $snrA = $_POST['modelNr'];
 $preisA = $_POST['preis'];
 $kaufDatA = $_POST['kaufdatum'];
 
+// Datenbank erstellen wenn sie nicht bereits existiert
 $sql = "CREATE DATABASE IF NOT EXISTS findventory";
 $conn->query($sql);
 
+// Datenbank verwenden
 $conn->select_db("findventory");
 
+// Tabelle erstellen wenn sie nicht bereits existiert
 $sql = "CREATE TABLE IF NOT EXISTS geraete (
     GeraeteID int auto_increment primary key,
     Hersteller varchar(30) not null,
@@ -26,16 +29,19 @@ $sql = "CREATE TABLE IF NOT EXISTS geraete (
 )";
 $conn->query($sql);
 
+// SQL-Abfrage für das Einfügen von Daten
 $sql = "INSERT INTO geraete (Hersteller, Seriennummer, Preis, Kaufdatum) VALUES ('$herstellerA', '$snrA', '$preisA', '$kaufDatA')";
 
+// Überprüfen, ob die Abfrage erfolgreich war
 if ($conn->query($sql) === TRUE) {
     echo "Eintrag erfolgreich hinzugefügt";
 } else {
     echo "Fehler beim Hinzufügen des Eintrags: " . $conn->error;
 }
 
+// Verbindung schließen
 $conn->close();
-header("location:../HTML/Add_HTML.php");
+header("location:../HTML/Eingabe_HTML.php");
 ?>
 
 

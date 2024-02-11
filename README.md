@@ -8,7 +8,7 @@ To run this software, you will need: <br>
 2) XAMPP <br>
 
 
-Just paste all the repository contents into the XAMPP folder "htdocs" and start the Apache and MySQL servers in the XAMPP control panel. <br>
+Just copy all the repository contents into the XAMPP folder "htdocs" and start the Apache and MySQL servers in the XAMPP control panel. <br>
 Start the software by entering "localhost/HTML" into the URL bar of your browser. <br>
 Have fun inventorizing ;)
 

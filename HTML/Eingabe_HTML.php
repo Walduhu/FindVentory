@@ -2,10 +2,12 @@
 
 $conn = new mysqli("localhost", "root", "");
 
+// Prüfen ob die Datenbank existiert
 $result = $conn->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'findventory'");
 if ($result->num_rows == 1) {
+  // Datenbank auswählen wenn sie existiert
   $conn->select_db("findventory");
-} else {
+} else { // Datenbank und Tabelle erstellen wenn sie nicht existieren
   $sql = "CREATE DATABASE findventory;";
   $conn->query($sql);
   $conn->select_db("findventory");
@@ -26,22 +28,22 @@ if ($result->num_rows == 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventory</title>
+  <title>Inventarisierung</title>
   <link rel="stylesheet" href="../CSS/fvstyles_add.css">
 </head>
 
 <body>
   <div class="container">
     <div class="tabelle">
-      <h1>Device list</h1>
+      <h1>Geräteliste</h1>
 
       <table>
         <tr>
           <th>ID</th>
-          <th>Manufacturer</th>
-          <th>Serial No.</th>
-          <th>Price in €</th>
-          <th>Date of purchase</th>
+          <th>Hersteller</th>
+          <th>Seriennummer</th>
+          <th>Preis in €</th>
+          <th>Kaufdatum</th>
         </tr>
 
         <?php
@@ -61,26 +63,26 @@ if ($result->num_rows == 1) {
 
 
     <div class="rightflexbox">
-      <h1>Please enter device data:</h1>
-      <form action="../Add.php" method="post">
+      <h1>Bitte geben Sie die Gerätedaten ein:</h1>
+      <form action="../PHP/Aufnahme.php" method="post">
         <p>
-          <label for="Hersteller">Manufacturer</label><br>
+          <label for="Hersteller">Hersteller</label><br>
           <input id="Hersteller" type="text" name="hersteller" required>
         </p>
         <p>
-          <label for="SNR">Serial No.</label><br>
+          <label for="SNR">Seriennummer</label><br>
           <input id="SNR" type="text" name="modelNr" required>
         </p>
         <p>
-          <label for="PiE">Price in €</label><br>
+          <label for="PiE">Preis in Euro</label><br>
           <input id="PiE" type="number" step="0.01" name="preis" required>
         </p>
         <p>
-          <label for="KD">Date of purchase</label><br>
+          <label for="KD">Kaufdatum</label><br>
           <input id="KD" type="date" name="kaufdatum" required>
         </p>
-        <input class="button-uebergabe" type="submit" value="Add to inventory"><br>
-        <a class="button-uebergabe" id="link" href="http://localhost/HTML/Index.html">Main menu</a>
+        <input class="button-uebergabe" type="submit" value="Zum Inventar hinzufügen"><br>
+        <a class="button-uebergabe" id="link" href="http://localhost/HTML/Index.html">Hauptmenü</a>
       </form>
     </div>
   </div>

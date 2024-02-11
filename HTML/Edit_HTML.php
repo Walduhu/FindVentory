@@ -62,7 +62,7 @@ if ($result->num_rows == 1) {
 
 
     <div class="rightflexbox">
-      <h1>Edit a device in the list here</h1>
+      <h1>Edit a listed device here</h1>
       <form action="../PHP/Edit.php" method="post">
         <p>
           <label for="ID">ID</label><br>

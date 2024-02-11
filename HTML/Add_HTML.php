@@ -62,7 +62,7 @@ if ($result->num_rows == 1) {
 
     <div class="rightflexbox">
       <h1>Please enter device data:</h1>
-      <form action="../Add.php" method="post">
+      <form action="../PHP/Add.php" method="post">
         <p>
           <label for="Hersteller">Manufacturer</label><br>
           <input id="Hersteller" type="text" name="hersteller" required>
